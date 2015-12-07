@@ -73,7 +73,7 @@ class KeyboardSpacer extends React.Component {
 
     componentDidMount() {
         this._listeners = [
-            DeviceEventEmitter.addListener('keyboardDidShow', this.updateKeyboardSpace),
+            DeviceEventEmitter.addListener('keyboardWillShow', this.updateKeyboardSpace),
             DeviceEventEmitter.addListener('keyboardWillHide', this.resetKeyboardSpace)
         ];
     }
@@ -85,7 +85,7 @@ class KeyboardSpacer extends React.Component {
     }
 
     render() {
-        return (<View style={[{height: this.state.keyboardSpace, left: 0, right: 0, bottom: 0, backgroundColor: '#FFFFFF'}, this.props.style]}/>);
+        return (<View style={[{height: this.state.keyboardSpace, left: 0, right: 0, bottom: 0}, this.props.style]}/>);
     }
 }
 
